@@ -1,0 +1,23 @@
+{
+  "name": "node-js-capstone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serenity4eternity786/node-js-capstone.git"
+  },
+  "author": "Alisha Byford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/serenity4eternity786/node-js-capstone/issues"
+  },
+  "homepage": "https://github.com/serenity4eternity786/node-js-capstone#readme"
+}
