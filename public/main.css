@@ -33,7 +33,7 @@ body{
 
 header{
     text-align: center;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Arvo', serif;
     color: honeydew;
     text-shadow: 1px 0px 18px rgba(150, 150, 149, 1);
     font-size: 5rem;
@@ -48,8 +48,8 @@ main{
     height: auto;
 }
 
-.list, .rate {
-    font-family: 'Fredoka One', cursive;
+.wish, .rate {
+    font-family: 'Arvo', serif;
     font-size: 3rem;
     color: honeydew;
     text-shadow: 1px 0px 18px rgba(150, 150, 149, 1);
@@ -66,7 +66,7 @@ main{
     vertical-align: top;
 }
 
-.list {
+.wish {
     text-align: center;
 }
 
@@ -77,7 +77,7 @@ main{
 
 input, button {
     background-color: beige;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Arvo', serif;
     border-radius: 0.5rem;
     text-align: center;
     width: 45%;
