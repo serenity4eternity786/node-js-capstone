@@ -64,7 +64,6 @@ app.get('/search/:gameName', function (req, res) {
     getGameNames.on('end', function (item) {
     res.json(item);
         //get the artists and ID for use in next call
-        console.log(item);
     });
      getGameNames.on('error', function (code) {
         res.sendStatus(code);
@@ -85,7 +84,6 @@ app.get('/wishlist', function (req, res) {
 });
 
 app.post('/wishlist/:gameName', function (req, res) {
-    console.log("inside the post endpoint");
     Wishlist.create({
         name: req.params.gameName
     }, function (err, item) {
@@ -118,7 +116,6 @@ app.put('/wishlist/:gameName', function (req, res) {
 });
 
 app.delete('/wishlist/:gameId', function (req, res) {
-    console.log("inside the delete endpoint");
     Wishlist.findByIdAndRemove(req.params.gameId, function (err, items) {
         if (err)
             return res.status(404).json({
@@ -134,19 +131,6 @@ app.use('*', function (req, res) {
         message: 'Not Found'
     });
 });
-
-// app.post('/search:gameName', jsonParser, function(req, res) {
-    
-// });
-
-// app.delete('/search:gameName', jsonParser, function(req, res) {
-    
-// });
-
-// app.put('/search:gameName', jsonParser, function(req, res) {
-    
-// });
-
 
 //server listener/settings
 app.listen(process.env.PORT || 5000);
