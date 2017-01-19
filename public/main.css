@@ -62,7 +62,7 @@ main{
     margin-right: 5.5px;
     margin-left: 5.5px;
     display: inline-block;
-    height: 50rem;
+    height: auto;
     vertical-align: top;
 }
 
@@ -95,3 +95,53 @@ h6 {
     font-family: 'Ubuntu', sans-serif;
     font-size: small;
 }
+
+ul {
+    font-size: medium;
+    text-align: center;
+    font-style: oblique;
+    margin: 50px;
+    font-weight: bold;
+    list-style: none;
+    
+}
+li {
+    display: block;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid gray;
+    margin-bottom: 1rem;
+}
+.image-wrapper {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 5px;
+}
+.text-wrapper {
+    width: 69%;
+    display: inline-block;
+    vertical-align: top;
+    font-weight: bold;
+    
+}
+.text-wrapper h2 {
+    font-size: 1.5rem;
+}
+.game-score {
+    padding-right: 5px;
+    font-size: x-large;
+    color: yellow;
+    padding-bottom: 30px;
+}
+
+.game-publisher {
+    padding-bottom: 30px;
+}
+
+.game-description{
+    font-style: italic;
+}
+
+

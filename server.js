@@ -2,13 +2,41 @@
 var express = require('express');
 var unirest = require('unirest');
 var mongoose = require('mongoose');
+var config = require('./config');
+var events = require('events');
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 var app = express();
+var Wishlist = require('./models/wishlist');
 app.use(express.static('public'));
+app.use(bodyParser.json());
+
+var runServer = function (callback) {
+    mongoose.connect(config.DATABASE_URL, function (err) {
+        if (err && callback) {
+            return callback(err);
+        }
+
+        app.listen(config.PORT, function () {
+            console.log('Listening on localhost:' + config.PORT);
+            if (callback) {
+                callback();
+            }
+        });
+    });
+};
+
+if (require.main === module) {
+    runServer(function (err) {
+        if (err) {
+            console.error(err);
+        }
+    });
+};
 
 //function to make the external API call
 var getGame = function(gameName) {
+var emitter = new events.EventEmitter();
     unirest.get("https://videogamesrating.p.mashape.com/get.php?count=5&game=" + gameName)
         .header("X-Mashape-Key", "WSWRlNjNUEmshRZyglgBobs9R6Uop1a9fC8jsnUZaFZwRpGFgX")
         .header("Accept", "application/json")
@@ -16,13 +44,15 @@ var getGame = function(gameName) {
             console.log(result.status, result.headers, result.body);
             //success scenario
             if (result.ok) {
-                console.log(result.body);
+                emitter.emit('end', result.body);
             }
             //failure scenario
             else {
-               console.log(result.status);
+                //console.log("error line 28");
+                emitter.emit('error', result.code);
             }
         });
+        return emitter;
    };
 
 //create get endpoint for ajax to access the external API results data
@@ -32,7 +62,7 @@ app.get('/search/:gameName', function (req, res) {
         
     //get the data from the first api call
     getGameNames.on('end', function (item) {
-
+    res.json(item);
         //get the artists and ID for use in next call
         console.log(item);
     });
@@ -42,5 +72,81 @@ app.get('/search/:gameName', function (req, res) {
 
 });
 
+
+app.get('/wishlist', function (req, res) {
+    Wishlist.find(function (err, items) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(items);
+    });
+});
+
+app.post('/wishlist/:gameName', function (req, res) {
+    console.log("inside the post endpoint");
+    Wishlist.create({
+        name: req.params.gameName
+    }, function (err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(201).json(item);
+    });
+});
+
+app.put('/wishlist/:gameName', function (req, res) {
+    Wishlist.find(function (err, items) {
+        if (err) {
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+        }
+        Wishlist.update({
+            _id: req.body.id
+        }, {
+            $set: {
+                name: req.body.name
+            }
+        }, function () {
+            res.status(201).json(items);
+        });
+    });
+});
+
+app.delete('/wishlist/:gameId', function (req, res) {
+    console.log("inside the delete endpoint");
+    Wishlist.findByIdAndRemove(req.params.gameId, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(201).json(items);
+    });
+});
+
+app.use('*', function (req, res) {
+    res.status(404).json({
+        message: 'Not Found'
+    });
+});
+
+// app.post('/search:gameName', jsonParser, function(req, res) {
+    
+// });
+
+// app.delete('/search:gameName', jsonParser, function(req, res) {
+    
+// });
+
+// app.put('/search:gameName', jsonParser, function(req, res) {
+    
+// });
+
+
 //server listener/settings
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 5000);
