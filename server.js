@@ -2,6 +2,7 @@
 var express = require('express');
 var unirest = require('unirest');
 var mongoose = require('mongoose');
+var mongodb = require('mongodb');
 var config = require('./config');
 var events = require('events');
 var bodyParser = require('body-parser');
