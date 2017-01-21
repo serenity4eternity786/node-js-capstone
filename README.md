@@ -1,25 +1,36 @@
 #Video Game Ratings
 
-![Screenshots]()
+#Epic: Help gamers pick their best preferred game through game ratings and add additional help with a wishlist.
 
-API:
+![Screenshots](https://github.com/serenity4eternity786/node-js-capstone/blob/master/node%20capstone%202.PNG)
+![Screenshots](https://github.com/serenity4eternity786/node-js-capstone/blob/master/node%20capstone%201.PNG)
+
+#API:
 https://market.mashape.com/cosmin/ign-com-video-games-rating
 - Switched from reviews to ratings due to non-responsive API
 - UPDATE - As of 1/20/17, rating API down. Will check back in a week to see if it is back up.
 
-Epic: Help gamers pick their best preferred game through game ratings and add additional help with a wishlist.
+#Summary:
 
-User Stories:
+#User Stories:
 - As a user, I should be able to search for any game, regardless of the type of console.
 - As a user, I should be able to add games to my wishlist.
 - As a user, I should be able to delete games to my wishlist.
 - As a user, I should be able to read all ratings based on the game.
 
-Screens:
+#Screens:
 - Screen for gamer wishlist.
 - Screen for game reviews.
 - Screen for app title.
 
-API:
+#API & Tech Used:
 https://market.mashape.com/cosmin/ign-com-video-games-rating
 - Switched from reviews to ratings due to non-responsive API
+*Node.JS
+*JQuery
+*Mongoose
+*Mongo
+*Chai
+*Mocha
+*HTML
+*CSS
