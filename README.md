@@ -1,4 +1,4 @@
-#Video #Game #Ratings
+#Video Game Ratings
 
 ![Screenshots]()
 
