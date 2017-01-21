@@ -29,12 +29,14 @@ The second is the Rating API call: You as the user will be able to search for th
 
 #API & Tech Used:
 https://market.mashape.com/cosmin/ign-com-video-games-rating
-- Switched from reviews to ratings due to non-responsive API
-*Node.JS
-*JQuery
-*Mongoose
-*Mongo
-*Chai
-*Mocha
-*HTML
-*CSS
+- Switched from reviews to ratings due to non-responsive API -
+- Node.JS
+- JQuery
+- Mongoose
+- Mongo
+- Chai
+- Mocha
+- HTML
+- CSS
+- Heroku
+ 
