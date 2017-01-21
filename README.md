@@ -1,6 +1,7 @@
 #Video Game Ratings
 
-#Epic: Help gamers pick their best preferred game through game ratings and add additional help with a wishlist.
+#Epic: 
+Help gamers pick their best preferred game through game ratings and add additional help with a wishlist.
 
 ![Screenshots](https://github.com/serenity4eternity786/node-js-capstone/blob/master/node%20capstone%202.PNG)
 ![Screenshots](https://github.com/serenity4eternity786/node-js-capstone/blob/master/node%20capstone%201.PNG)
@@ -11,6 +12,9 @@ https://market.mashape.com/cosmin/ign-com-video-games-rating
 - UPDATE - As of 1/20/17, rating API down. Will check back in a week to see if it is back up.
 
 #Summary:
+There are two parts to this app.
+The first is the wishlist: You as the user will be able to add and delete the names of the games that you are interested in buying.
+The second is the Rating API call: You as the user will be able to search for the game in order to see the rating of it.
 
 #User Stories:
 - As a user, I should be able to search for any game, regardless of the type of console.
