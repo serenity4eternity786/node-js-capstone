@@ -1,3 +1,12 @@
+#Video #Game #Ratings
+
+![Screenshots]()
+
+API:
+https://market.mashape.com/cosmin/ign-com-video-games-rating
+- Switched from reviews to ratings due to non-responsive API
+- UPDATE - As of 1/20/17, rating API down. Will check back in a week to see if it is back up.
+
 Epic: Help gamers pick their best preferred game through game ratings and add additional help with a wishlist.
 
 User Stories:
