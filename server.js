@@ -38,7 +38,7 @@ if (require.main === module) {
 //function to make the external API call
 var getGame = function(gameName) {
 var emitter = new events.EventEmitter();
-    unirest.get("https://videogamesrating.p.mashape.com/get.php?count=5&game=" + gameName)
+    unirest.get("https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name&limit=10&offset=0&order=release_dates.date%3Adesc&search=" + gameName)
         .header("X-Mashape-Key", "WSWRlNjNUEmshRZyglgBobs9R6Uop1a9fC8jsnUZaFZwRpGFgX")
         .header("Accept", "application/json")
         .end(function(result) {
