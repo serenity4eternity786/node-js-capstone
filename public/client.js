@@ -21,11 +21,11 @@ function displayResults(result) {
     var buildTheHtmlOutput = "";
     for (var i = 0; i < result.length; i++) {
         buildTheHtmlOutput += "<li>";
-        buildTheHtmlOutput += "<div class='image-wrapper'><img src=" + result[i].thumb + "></div>";
-        buildTheHtmlOutput += "<div class='text-wrapper'><h2>" + result[i].title + "</h2>";
-        buildTheHtmlOutput += "<p><span class='game-score'>" + result[i].score + "</span>";
-        buildTheHtmlOutput += "<span class='game-publisher'>" + result[i].publisher + "</span></p>";
-        buildTheHtmlOutput += "<p class='game-description'>" + result[i].short_description + "</p></div>";
+//         buildTheHtmlOutput += "<div class='image-wrapper'><img src=" + result[i].thumb + "></div>";
+        buildTheHtmlOutput += "<div class='text-wrapper'><h2>" + result[i].name + "</h2>";
+//         buildTheHtmlOutput += "<p><span class='game-score'>" + result[i].score + "</span>";
+//         buildTheHtmlOutput += "<span class='game-publisher'>" + result[i].publisher + "</span></p>";
+//         buildTheHtmlOutput += "<p class='game-description'>" + result[i].short_description + "</p></div>";
         buildTheHtmlOutput += "</li>";
     }
     $(".rate form ul").html(buildTheHtmlOutput);
