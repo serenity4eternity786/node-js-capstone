@@ -3,8 +3,8 @@
 #Epic: 
 Help gamers pick their best preferred game through a simple game search and add additional help with a wishlist.
 
-![Screenshots](https://github.com/serenity4eternity786/node-js-capstone/blob/master/node%20capstone%202.PNG)
-![Screenshots](https://github.com/serenity4eternity786/node-js-capstone/blob/master/node%20capstone%201.PNG)
+![Screenshots](https://github.com/serenity4eternity786/node-js-capstone/blob/master/Capture3.PNG)
+![Screenshots](https://github.com/serenity4eternity786/node-js-capstone/blob/master/Capture2.PNG)
 
 #API:
 https://market.mashape.com/ahmedakhan/video-game-information
