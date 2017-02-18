@@ -27,6 +27,7 @@ function displayResults(inputData) {
         // buildTheHtmlOutput += "<p><span class='game-score'>" + result[i].score + "</span>";
         // buildTheHtmlOutput += "<span class='game-publisher'>" + result[i].publisher + "</span></p>";
         // buildTheHtmlOutput += "<p class='game-description'>" + result[i].short_description + "</p></div>";
+
         buildTheHtmlOutput += "</li>";
     }
     $(".rate form ul").html(buildTheHtmlOutput);
