@@ -16,16 +16,17 @@ function getInput() {
     }
 }
 
-function displayResults(result) {
+function displayResults(inputData) {
+    console.log(inputData.result);
     //create an empty variable to store one LI for each one the results
     var buildTheHtmlOutput = "";
-    for (var i = 0; i < result.length; i++) {
+    for (var i = 0; i < inputData.result.length; i++) {
         buildTheHtmlOutput += "<li>";
-        buildTheHtmlOutput += "<div class='image-wrapper'><img src=" + result[i].thumb + "></div>";
-        buildTheHtmlOutput += "<div class='text-wrapper'><h2>" + result[i].title + "</h2>";
-        buildTheHtmlOutput += "<p><span class='game-score'>" + result[i].score + "</span>";
-        buildTheHtmlOutput += "<span class='game-publisher'>" + result[i].publisher + "</span></p>";
-        buildTheHtmlOutput += "<p class='game-description'>" + result[i].short_description + "</p></div>";
+        // buildTheHtmlOutput += "<div class='image-wrapper'><img src=" + result[i].thumb + "></div>";
+        buildTheHtmlOutput += "<div class='text-wrapper'><h2>" + inputData.result[i] + "</h2>";
+        // buildTheHtmlOutput += "<p><span class='game-score'>" + result[i].score + "</span>";
+        // buildTheHtmlOutput += "<span class='game-publisher'>" + result[i].publisher + "</span></p>";
+        // buildTheHtmlOutput += "<p class='game-description'>" + result[i].short_description + "</p></div>";
         buildTheHtmlOutput += "</li>";
     }
     $(".rate form ul").html(buildTheHtmlOutput);
@@ -121,7 +122,7 @@ $(document).ready(function(e) {
                 dataType: 'json'
             })
             .done(function(result) {
-                //console.log(result);
+                console.log(result);
                 displayResults(result);
             })
             .fail(function(jqXHR, error, errorThrown) {

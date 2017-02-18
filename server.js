@@ -12,13 +12,13 @@ var Wishlist = require('./models/wishlist');
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-var runServer = function (callback) {
-    mongoose.connect(config.DATABASE_URL, function (err) {
+var runServer = function(callback) {
+    mongoose.connect(config.DATABASE_URL, function(err) {
         if (err && callback) {
             return callback(err);
         }
 
-        app.listen(config.PORT, function () {
+        app.listen(config.PORT, function() {
             console.log('Listening on localhost:' + config.PORT);
             if (callback) {
                 callback();
@@ -28,7 +28,7 @@ var runServer = function (callback) {
 };
 
 if (require.main === module) {
-    runServer(function (err) {
+    runServer(function(err) {
         if (err) {
             console.error(err);
         }
@@ -37,12 +37,18 @@ if (require.main === module) {
 
 //function to make the external API call
 var getGame = function(gameName) {
-var emitter = new events.EventEmitter();
-    unirest.get("https://videogamesrating.p.mashape.com/get.php?count=5&game=" + gameName)
+    var emitter = new events.EventEmitter();
+    unirest.get("https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=" + gameName)
         .header("X-Mashape-Key", "WSWRlNjNUEmshRZyglgBobs9R6Uop1a9fC8jsnUZaFZwRpGFgX")
         .header("Accept", "application/json")
         .end(function(result) {
             console.log(result.status, result.headers, result.body);
+
+            // unirest.get("https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name&limit=10&offset=0&order=release_dates.date%3Adesc&search=" + gameName)
+            //     .header("X-Mashape-Key", "WSWRlNjNUEmshRZyglgBobs9R6Uop1a9fC8jsnUZaFZwRpGFgX")
+            //     .header("Accept", "application/json")
+            //     .end(function(result) {
+            //         console.log(result.status, result.headers, result.body);
             //success scenario
             if (result.ok) {
                 emitter.emit('end', result.body);
@@ -53,28 +59,28 @@ var emitter = new events.EventEmitter();
                 emitter.emit('error', result.code);
             }
         });
-        return emitter;
-   };
+    return emitter;
+};
 
 //create get endpoint for ajax to access the external API results data
-app.get('/search/:gameName', function (req, res) {
+app.get('/search/:gameName', function(req, res) {
     //first API call
     var getGameNames = getGame(req.params.gameName);
-        
+
     //get the data from the first api call
-    getGameNames.on('end', function (item) {
-    res.json(item);
+    getGameNames.on('end', function(item) {
+        res.json(item);
         //get the artists and ID for use in next call
     });
-     getGameNames.on('error', function (code) {
+    getGameNames.on('error', function(code) {
         res.sendStatus(code);
     });
 
 });
 
 
-app.get('/wishlist', function (req, res) {
-    Wishlist.find(function (err, items) {
+app.get('/wishlist', function(req, res) {
+    Wishlist.find(function(err, items) {
         if (err) {
             return res.status(500).json({
                 message: 'Internal Server Error'
@@ -84,10 +90,10 @@ app.get('/wishlist', function (req, res) {
     });
 });
 
-app.post('/wishlist/:gameName', function (req, res) {
+app.post('/wishlist/:gameName', function(req, res) {
     Wishlist.create({
         name: req.params.gameName
-    }, function (err, item) {
+    }, function(err, item) {
         if (err) {
             return res.status(500).json({
                 message: 'Internal Server Error'
@@ -97,8 +103,8 @@ app.post('/wishlist/:gameName', function (req, res) {
     });
 });
 
-app.put('/wishlist/:gameName', function (req, res) {
-    Wishlist.find(function (err, items) {
+app.put('/wishlist/:gameName', function(req, res) {
+    Wishlist.find(function(err, items) {
         if (err) {
             return res.status(404).json({
                 message: 'Item not found.'
@@ -110,14 +116,14 @@ app.put('/wishlist/:gameName', function (req, res) {
             $set: {
                 name: req.body.name
             }
-        }, function () {
+        }, function() {
             res.status(201).json(items);
         });
     });
 });
 
-app.delete('/wishlist/:gameId', function (req, res) {
-    Wishlist.findByIdAndRemove(req.params.gameId, function (err, items) {
+app.delete('/wishlist/:gameId', function(req, res) {
+    Wishlist.findByIdAndRemove(req.params.gameId, function(err, items) {
         if (err)
             return res.status(404).json({
                 message: 'Item not found.'
@@ -127,7 +133,7 @@ app.delete('/wishlist/:gameId', function (req, res) {
     });
 });
 
-app.use('*', function (req, res) {
+app.use('*', function(req, res) {
     res.status(404).json({
         message: 'Not Found'
     });
