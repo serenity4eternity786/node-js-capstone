@@ -28,9 +28,7 @@ The second is the Search API call: You as the user will be able to search for th
 - Screen for game search.
 - Screen for app title.
 
-#API & Tech Used:
-https://market.mashape.com/cosmin/ign-com-video-games-rating
-- Switched from reviews to ratings to simple search due to non-responsive API -
+#Tech Used:
 - Node.JS
 - JQuery
 - Mongoose
