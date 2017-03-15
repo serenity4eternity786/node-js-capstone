@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Video Game Ratings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="main.css"></link>
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -22,7 +23,7 @@
             <h2>Wishlist</h2>
             <h6>Is there a game you fancy? Go ahead and add it to the list!</h6>
             <form id="add-game">
-                <input type="text" class="custInput" id="game-input" placeholder="Enter Game"/>
+                <input type="text" class="custInput" id="game-input" placeholder=""/>
                 <button type="submit" id="add">Add</button>
             </form>
             <div class="wishlist-output">
@@ -35,10 +36,13 @@
             
             <h6>Not sure about a certain game? Go ahead and search for a game!</h6>
             <form id="s-f">
-                <input type="text" id="game-search" placeholder="Enter Wish"/>
+                <input type="text" id="game-search" placeholder=""/>
                 <button type="submit" id="ratingButton">Add</button>
-                <ul></ul>
+                
             </form>
+            <div class="rate-output">
+                <ul></ul>
+            </div>
         </section>
     </main>
     <script

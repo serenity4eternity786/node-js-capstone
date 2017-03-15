@@ -100,9 +100,12 @@ ul {
     font-size: medium;
     text-align: center;
     font-style: oblique;
-    margin: 50px;
+    margin-bottom: 50px;
+    margin-top: 50px;
     font-weight: bold;
     list-style: none;
+    text-overflow: ellipsis;
+    
     
 }
 li {
@@ -111,6 +114,25 @@ li {
     padding-bottom: 1rem;
     border-bottom: 2px solid gray;
     margin-bottom: 1rem;
+    position: relative;
+}
+.addGameToWishlist{
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+}
+.addGameToWishlist button {
+    background-color: transparent;
+    border-radius: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    height: 20px;
+}
+.addGameToWishlist img{
+    width:  20px;
+    
 }
 .image-wrapper {
     width: 100%;

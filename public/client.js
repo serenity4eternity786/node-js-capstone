@@ -17,21 +17,69 @@ function getInput() {
 }
 
 function displayResults(inputData) {
-    console.log(inputData.result);
+    console.log(jQuery.parseJSON(inputData));
     //create an empty variable to store one LI for each one the results
     var buildTheHtmlOutput = "";
-    for (var i = 0; i < inputData.result.length; i++) {
+    for (var i = 0; i < jQuery.parseJSON(inputData).length; i++) {
         buildTheHtmlOutput += "<li>";
-        // buildTheHtmlOutput += "<div class='image-wrapper'><img src=" + result[i].thumb + "></div>";
-        buildTheHtmlOutput += "<div class='text-wrapper'><h2>" + inputData.result[i] + "</h2>";
-        // buildTheHtmlOutput += "<p><span class='game-score'>" + result[i].score + "</span>";
-        // buildTheHtmlOutput += "<span class='game-publisher'>" + result[i].publisher + "</span></p>";
-        // buildTheHtmlOutput += "<p class='game-description'>" + result[i].short_description + "</p></div>";
-
+        buildTheHtmlOutput += "<div class='text-wrapper'><h2>" + jQuery.parseJSON(inputData)[i].name + "</h2>";
+        buildTheHtmlOutput += "<form class='addGameToWishlist'>";
+        buildTheHtmlOutput += "<input type='hidden' class='addGameToWishlistValue' value='" + jQuery.parseJSON(inputData)[i].name + "'>";
+        buildTheHtmlOutput += "<button type='submit' class='addToWishlistButton'>";
+        buildTheHtmlOutput += "<img src='star.png' class='star-icon'>";
+        buildTheHtmlOutput += "</button>";
+        buildTheHtmlOutput += "</form>";
+       
         buildTheHtmlOutput += "</li>";
     }
-    $(".rate form ul").html(buildTheHtmlOutput);
+    $(".rate-output ul").html(buildTheHtmlOutput);
 }
+
+$(document).on('click', '.addToWishlistButton', function(event) {
+    console.log('here');
+    //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
+    event.preventDefault();
+    //get the value from the input box
+    var wishlistValue = $(this).parent().find('.addGameToWishlistValue').val();
+
+
+    var nameObject = {
+        'name': wishlistValue
+    };
+
+     $.ajax({
+                type: "POST",
+                url: "/wishlist/" + wishlistValue,
+                // data: q_string,
+                dataType: 'json'
+            })
+            .done(function(result) {
+                //console.log(result);
+                //   displayResults(result);
+            })
+            .fail(function(jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+
+        //get all items
+        $.ajax({
+                type: "GET",
+                url: "/wishlist",
+                dataType: 'json'
+            })
+            .done(function(result) {
+                // console.log(result);
+                displayWishlistResults(result);
+            })
+            .fail(function(jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+
+});
 
 function displayWishlistResults(result) {
 
