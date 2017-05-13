@@ -17,10 +17,10 @@ function getInput() {
 }
 
 function displayResults(inputData) {
-    console.log(jQuery.parseJSON(inputData));
+    console.log(jQuery.parseJSON.stringify(inputData));
     //create an empty variable to store one LI for each one the results
     var buildTheHtmlOutput = "";
-    for (var i = 0; i < jQuery.parseJSON(inputData).length; i++) {
+    for (var i = 0; i < jQuery.parseJSON.stringify(inputData).length; i++) {
         buildTheHtmlOutput += "<li>";
         buildTheHtmlOutput += "<div class='text-wrapper'><h2>" + jQuery.parseJSON(inputData)[i].name + "</h2>";
         buildTheHtmlOutput += "<form class='addGameToWishlist'>";
