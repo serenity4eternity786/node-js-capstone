@@ -22,9 +22,9 @@ function displayResults(inputData) {
     var buildTheHtmlOutput = "";
     for (var i = 0; i < JSON.stringify(inputData).length; i++) {
         buildTheHtmlOutput += "<li>";
-        buildTheHtmlOutput += "<div class='text-wrapper'><h2>" + JSON.stringify(inputData)[i]."name" + "</h2>";
+        buildTheHtmlOutput += "<div class='text-wrapper'><h2>" + JSON.stringify(inputData)[i].name + "</h2>";
         buildTheHtmlOutput += "<form class='addGameToWishlist'>";
-        buildTheHtmlOutput += "<input type='hidden' class='addGameToWishlistValue' value='" + JSON.stringify(inputData)[i]."name" + "'>";
+        buildTheHtmlOutput += "<input type='hidden' class='addGameToWishlistValue' value='" + JSON.stringify(inputData)[i].name + "'>";
         buildTheHtmlOutput += "<button type='submit' class='addToWishlistButton'>";
         buildTheHtmlOutput += "<img src='star.png' class='star-icon'>";
         buildTheHtmlOutput += "</button>";
