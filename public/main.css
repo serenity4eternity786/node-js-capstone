@@ -88,10 +88,11 @@ input, button {
 
 button {
     width: 20%;
+    cursor: pointer;
 }
 
 
-h6 {
+h5 {
     font-family: 'Ubuntu', sans-serif;
     font-size: small;
 }

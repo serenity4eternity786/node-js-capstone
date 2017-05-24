@@ -3,14 +3,21 @@
 # Epic: 
 Help gamers pick their best preferred game through a simple game search and add additional help with a wishlist.
 
-![Screenshots](https://github.com/serenity4eternity786/node-js-capstone/blob/master/Capture3.PNG)
+NEW: Click the star that is next to the game to add it to the wishlist!
+
 ![Screenshots](https://github.com/serenity4eternity786/node-js-capstone/blob/master/Capture2.PNG)
+![Screenshots](https://github.com/serenity4eternity786/node-js-capstone/blob/master/Capture3.PNG)
 
 # API:
+<<<<<<< HEAD
 https://market.mashape.com/ahmedakhan/video-game-information
+=======
+https://www.igdb.com/api
+>>>>>>> 6481c67916b06f6621dce78b65b01c109b604b54
 - Switched from reviews to ratings due to non-responsive API
 - UPDATE - As of 1/20/17, rating API down. Will check back in a week to see if it is back up.
 - UPDATE - As of 2/18/17, rating API officially dead. Changed the API website to a simple video game search. Website shown above.
+- UPDATE - As of 3/14/17, API changed due to another dead API. Updated site shown above.
 
 # Summary:
 There are two parts to this app.

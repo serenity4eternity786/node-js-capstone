@@ -17,14 +17,14 @@ function getInput() {
 }
 
 function displayResults(inputData) {
-    console.log(jQuery.parseJSON.stringify(inputData));
+    console.log(inputData);
     //create an empty variable to store one LI for each one the results
     var buildTheHtmlOutput = "";
-    for (var i = 0; i < jQuery.parseJSON.stringify(inputData).length; i++) {
+    for (var i = 0; i < inputData.length; i++) {
         buildTheHtmlOutput += "<li>";
-        buildTheHtmlOutput += "<div class='text-wrapper'><h2>" + jQuery.parseJSON(inputData)[i].name + "</h2>";
+        buildTheHtmlOutput += "<div class='text-wrapper'><h2>" + inputData[i].name + "</h2>";
         buildTheHtmlOutput += "<form class='addGameToWishlist'>";
-        buildTheHtmlOutput += "<input type='hidden' class='addGameToWishlistValue' value='" + jQuery.parseJSON(inputData)[i].name + "'>";
+        buildTheHtmlOutput += "<input type='hidden' class='addGameToWishlistValue' value='" + inputData[i].name + "'>";
         buildTheHtmlOutput += "<button type='submit' class='addToWishlistButton'>";
         buildTheHtmlOutput += "<img src='star.png' class='star-icon'>";
         buildTheHtmlOutput += "</button>";
@@ -36,7 +36,7 @@ function displayResults(inputData) {
 }
 
 $(document).on('click', '.addToWishlistButton', function(event) {
-    console.log('here');
+//     console.log('here');
     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
     //get the value from the input box
