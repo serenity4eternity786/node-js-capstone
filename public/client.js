@@ -26,7 +26,7 @@ function displayResults(inputData) {
         buildTheHtmlOutput += "<form class='addGameToWishlist'>";
         buildTheHtmlOutput += "<input type='hidden' class='addGameToWishlistValue' value='" + inputData[i].name + "'>";
         buildTheHtmlOutput += "<button type='submit' class='addToWishlistButton'>";
-        buildTheHtmlOutput += "<img src='star.png' class='star-icon'>";
+        buildTheHtmlOutput += "<img src='blackstar.png' class='star-icon'>";
         buildTheHtmlOutput += "</button>";
         buildTheHtmlOutput += "</form>";
        
