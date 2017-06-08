@@ -92,6 +92,9 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background: #ACA794;
+}
 
 h5 {
     font-family: 'Ubuntu', sans-serif;
@@ -177,4 +180,7 @@ h3 {
     margin: 1rem;
 }
 
+.fa {
+    text-align: center;
+}
 
