@@ -3,8 +3,9 @@
     padding: 0;
     border: 0;
     font-size: 100%;
+    text-align: center;
     /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     /*reset Chrome user agent styles*/
     -webkit-margin-before: 0px;
     -webkit-margin-after: 0px;
@@ -28,7 +29,7 @@ html {
 }
 body{
     font-size: 20px;
-    
+    box-sizing: border-box;
 }
 
 header{
@@ -38,7 +39,7 @@ header{
     color: honeydew;
     text-shadow: 1px 0px 18px rgba(150, 150, 149, 1);
     font-size: 4rem;
-    
+    box-sizing: border-box;
 }
 
 main{
@@ -51,7 +52,7 @@ main{
 
 .wish, .rate {
     font-family: 'Arvo', serif;
-    font-size: 3rem;
+    font-size: 200%;
     color: honeydew;
     text-shadow: 1px 0px 18px rgba(150, 150, 149, 1);
     background-image: url("yellow2.png");
@@ -65,14 +66,17 @@ main{
     display: inline-block;
     height: auto;
     vertical-align: top;
+    /*box-sizing: border-box;*/
 }
 
 .wish {
     text-align: center;
+    box-sizing: border-box;
 }
 
 .rate {
     text-align: center;
+    box-sizing: border-box;
     
 }
 
@@ -182,5 +186,8 @@ h3 {
 
 .fa {
     text-align: center;
+    position: relative;
+    padding: 10px;
+    bottom: 0;
 }
 
