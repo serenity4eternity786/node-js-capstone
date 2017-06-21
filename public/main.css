@@ -191,3 +191,12 @@ h3 {
     bottom: 0;
 }
 
+@media screen and (min-width:0px) and (max-width:640px) {
+    .wish {
+        width:80%;
+    }
+    
+    .rate {
+        width: 80%;
+    }
+}
