@@ -38,9 +38,12 @@ if (require.main === module) {
 //function to make the external API call
 var getGame = function(gameName) {
     var emitter = new events.EventEmitter();
-    unirest.get("https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name&limit=10&offset=0&order=release_dates.date%3Adesc&search=" + gameName)
-        .header("X-Mashape-Key", "WSWRlNjNUEmshRZyglgBobs9R6Uop1a9fC8jsnUZaFZwRpGFgX")
+    unirest.get("https://api-2445582011268.apicast.io/games/meta" + gameName)
+        .header("user-key", "87f6016d3ed314ee67c7fe018ccaf324")
         .header("Accept", "application/json")
+        // unirest.get("https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name&limit=10&offset=0&order=release_dates.date%3Adesc&search=" + gameName)
+        // .header("X-Mashape-Key", "WSWRlNjNUEmshRZyglgBobs9R6Uop1a9fC8jsnUZaFZwRpGFgX")
+        // .header("Accept", "application/json")
         .end(function(result) {
             console.log(result.status, result.headers, result.body);
             // unirest.get("https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=" + gameName)
